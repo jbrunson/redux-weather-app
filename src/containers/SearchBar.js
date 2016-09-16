@@ -6,9 +6,7 @@ import { fetchWeather } from '../actions/index';
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-
     this.state = { term: '' };
-
     this.onInputChange = this.onInputChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -42,9 +40,4 @@ class SearchBar extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWeather}, dispatch);
-}
-
-//null - there is not state here.  mapdispatch needs to be 2nd argument.
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, { fetchWeather })(SearchBar);
